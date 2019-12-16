@@ -43,7 +43,7 @@ public class Sentence {
         int y=0;
         if (x!=-1) {
             String a = currSent.substring(0, x);
-            String b = currSent.substring(x + 2, currSent.length() - 1);
+            String b = currSent.substring(x + 2);
             currSent = a + repl + b;
         }
     }
