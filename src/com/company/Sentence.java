@@ -41,7 +41,12 @@ public class Sentence {
     public void replaceNthTime(String str, int n, String repl) {
         int x = findNthTime(str, n);
         int y=0;
-        String a = currSent.substring()
+        if (x!=0) {
+            String a = currSent.substring(0, n + 1);
+            a= a.replace(str,repl);
+            String b = currSent.substring(n + 2, currSent.length() - 1);
+            currSent = a + b;
+        }
     }
 
     /** Returns the index of the last occurrence of str in the current sentence:
@@ -56,8 +61,8 @@ public class Sentence {
     public static void main(String[] args) {
         Sentence sentence1 = new Sentence("A cat ate late.");
         System.out.println(sentence1.findNthTime("at",1));
-        //sentence1.replaceNthTime("at", 1, "rane");
-       // System.out.println(sentence1);
+        sentence1.replaceNthTime("at", 1, "rane");
+        System.out.println(sentence1);
 
         Sentence sentence2 = new Sentence("A cat ate late.");
         System.out.println(sentence2.findNthTime("at",6));
@@ -79,8 +84,8 @@ public class Sentence {
         //System.out.println(sentence4);
 
         Sentence sentence5 = new Sentence("aaaa");
-       // sentence5.replaceNthTime("aa", 2, "bbb");
-       // System.out.println(sentence5);
+       sentence5.replaceNthTime("aa", 2, "bbb");
+       System.out.println(sentence5);
 
         Sentence sentence6 = new Sentence("A cat ate late.");
         System.out.println(sentence6.findLastTime("at"));
